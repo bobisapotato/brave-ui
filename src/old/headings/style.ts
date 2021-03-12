@@ -3,19 +3,30 @@
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 import styled from 'styled-components'
-import { HeadingProps } from './index'
 import { setTheme } from '../../helpers'
+import { CustomStyleProps } from '..'
+
+interface HeadingTheme {
+  color?: string
+  fontFamily?: string
+  fontWeight?: string
+  margin?: string
+}
+
+export type StyleProps = {
+  customStyle?: HeadingTheme
+}
 
 // All feature-based text inherits from StyledSharedHeading
 // which excludes normal h1...h6 headings
-const StyledSharedHeading = styled.span`
+const StyledSharedHeading = styled.span<CustomStyleProps>`
   box-sizing: border-box;
   font-family: inherit;
   color: inherit;
   -webkit-font-smoothing: antialiased;
   user-select: none;
   cursor: default;
-` as any
+`
 
 const StyledHeadingTitle = styled(StyledSharedHeading.withComponent('h1'))`
   margin: 0;
@@ -29,7 +40,7 @@ const StyledHeadingTitleLabel = styled.sup`
   box-sizing: border-box;
   color: #999;
   font-size: 15px;
-` as any
+`
 
 const StyledSectionHeading = styled(StyledSharedHeading.withComponent('h2'))`
   color: rgb(68, 68, 68);
@@ -46,37 +57,37 @@ const StyledFeatureHeading = styled(StyledSharedHeading.withComponent('h2'))`
   min-width: 160px;
 `
 
-const StyledH1 = styled.h1`
+const StyledH1 = styled.h1<StyleProps>`
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
-  color: ${(p: HeadingProps) => setTheme(p.customStyle, 'color')};
-  font-weight: ${(p: HeadingProps) => setTheme(p.customStyle, 'fontWeight') || '400'};
-  font-family: ${(p: HeadingProps) => setTheme(p.customStyle, 'fontFamily') || 'inherit'};
-  margin: ${(p: HeadingProps) => setTheme(p.customStyle, 'margin') || '14px 0 22px'};
-  font-size: ${(p: HeadingProps) => setTheme(p.customStyle, 'fontSize') || '30px'};
-  text-align: ${(p: HeadingProps) => setTheme(p.customStyle, 'textAlign') || 'left'};
-  line-height: ${(p: HeadingProps) => setTheme(p.customStyle, 'lineHeight') || '44px'};
-` as any
+  color: ${(p) => setTheme(p.customStyle, 'color')};
+  font-weight: ${(p) => setTheme(p.customStyle, 'fontWeight') || '400'};
+  font-family: ${(p) => setTheme(p.customStyle, 'fontFamily') || 'inherit'};
+  margin: ${(p) => setTheme(p.customStyle, 'margin') || '14px 0 22px'};
+  font-size: ${(p) => setTheme(p.customStyle, 'fontSize') || '30px'};
+  text-align: ${(p) => setTheme(p.customStyle, 'textAlign') || 'left'};
+  line-height: ${(p) => setTheme(p.customStyle, 'lineHeight') || '44px'};
+`
 
-const StyledH2 = styled.h2`
+const StyledH2 = styled.h2<StyleProps>`
   /* TBD */
-` as any
+`
 
-const StyledH3 = styled.h3`
+const StyledH3 = styled.h3<StyleProps>`
   /* TBD */
-` as any
+`
 
-const StyledH4 = styled.h4`
+const StyledH4 = styled.h4<StyleProps>`
   /* TBD */
-` as any
+`
 
-const StyledH5 = styled.h5`
+const StyledH5 = styled.h5<StyleProps>`
   /* TBD */
-` as any
+`
 
-const StyledH6 = styled.h6`
+const StyledH6 = styled.h6<StyleProps>`
   /* TBD */
-` as any
+`
 
 export {
   StyledHeadingTitle,

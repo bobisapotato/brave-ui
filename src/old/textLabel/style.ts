@@ -6,7 +6,7 @@ import styled from 'styled-components'
 import { TextLabelProps } from './index'
 import { setTheme } from '../../helpers'
 
-const StyledTextLabel = styled.p`
+const StyledTextLabel = styled.p<TextLabelProps>`
   font-weight: ${(p: TextLabelProps) => setTheme(p.customStyle, 'fontWeight') || 'normal'};
   padding: ${(p: TextLabelProps) => setTheme(p.customStyle, 'padding') || '0'};
   font-size: ${(p: TextLabelProps) => setTheme(p.customStyle, 'fontSize') || '13px'};
@@ -21,6 +21,6 @@ const StyledTextLabel = styled.p`
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
-` as any
+`
 
 export default StyledTextLabel

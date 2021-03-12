@@ -13,22 +13,22 @@ const StyledMediaContent = styled.div`
   font-weight: inherit;
   font-family: inherit;
   color: inherit;
-` as any
+`
 
-const StyledMedia = styled.img`
+const StyledMedia = styled.img<MediaContentProps>`
   width: ${(p: MediaContentProps) => setTheme(p.customStyle, 'width')};
   box-sizing: border-box;
   display: block;
   max-width: 100%;
-` as any
+`
 
-const StyledMediaBody = styled.div`
+const StyledMediaBody = styled.div<MediaContentProps>`
   box-sizing: border-box;
   margin: ${(p: MediaContentProps) => setTheme(p.customStyle, 'margin')};
   font-weight: inherit;
   font-family: inherit;
   color: inherit;
-` as any
+`
 
 export {
   StyledMediaContent,

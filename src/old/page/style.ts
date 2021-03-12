@@ -6,7 +6,7 @@ import styled from 'styled-components'
 import { PageProps } from './index'
 import { setTheme } from '../../helpers'
 
-const StyledPage = styled.div`
+const StyledPage = styled.div<PageProps>`
   font-family: ${(p: PageProps) => setTheme(p.customStyle, 'fontFamily') || 'inherit'};
   color: ${(p: PageProps) => setTheme(p.customStyle, 'color') || 'inherit'};
   padding: ${(p: PageProps) => setTheme(p.customStyle, 'padding') || '40px'};
@@ -21,14 +21,14 @@ const StyledPage = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 100%;
-` as any
+`
 
 const StyledPageContent = styled.main`
   box-sizing: border-box;
   font-size: inherit;
   font-family: inherit;
   color: inherit;
-` as any
+`
 
 export {
   StyledPage,
